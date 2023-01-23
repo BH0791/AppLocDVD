@@ -27,7 +27,7 @@ public class AddDVDActivity extends AppCompatActivity {
         editTitreFilm = findViewById(R.id.addDVD_titre);
         editAnnee = findViewById(R.id.addDVD_annee);
         editResume = findViewById(R.id.addDVD_resume);
-        btnAddActeur = findViewById(R.id.addDVD_acteur);
+        btnAddActeur = findViewById(R.id.addDVD_addActeur);
         btnOk = findViewById(R.id.addDVD_ok);
         addActeurLayout = (LinearLayout) findViewById(R.id.addDVD_addActeurLayout);
 
@@ -51,26 +51,29 @@ public class AddDVDActivity extends AppCompatActivity {
 
     private void addActeur(String content) {
         EditText editNewActeur = new EditText(this);
-        editNewActeur.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
-        addActeurLayout.addView(editNewActeur);
 
-        if (content != null){
+        editNewActeur.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+
+
+        if (content != null)
             editNewActeur.setText(content);
-        }
+
+        addActeurLayout.addView(editNewActeur);
 
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
+
 
         String acteurs[] = new String[addActeurLayout.getChildCount()];
 
         for (int i = 0; i < addActeurLayout.getChildCount(); i++) {
             View child = addActeurLayout.getChildAt(i);
-            acteurs[i] = ((EditText)child).getText().toString();
+            if (child instanceof EditText)
+                acteurs[i] = ((EditText)child).getText().toString();
         }
-
+        super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putStringArray("acteurs", acteurs);
     }
 }

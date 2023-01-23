@@ -51,10 +51,9 @@
                     android:textStyle="bold"/>
 
             <Button
-                    android:id="@+id/addDVD_acteur"
+                    android:id="@+id/addDVD_addActeur"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:text="+"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -64,11 +63,6 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/addDVD_acteur1"
-                    android:inputType="textCapSentences|textPersonName"/>
         </LinearLayout>
 
         <!-- zone du résumé -->
