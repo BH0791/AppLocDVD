@@ -58,6 +58,13 @@ public class DVD {
         db.close();
     }
 
+    public void insert(Context context) {
+        LocalSQLiteOpenHelper helper = new LocalSQLiteOpenHelper(context);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        this.id = db.insert("DVD", null, getContentValues());
+        db.close();
+    }
+
     public void delete(Context context) {
         String whereClause = "id= ?";
         String[] whereArgs = new String[1];
