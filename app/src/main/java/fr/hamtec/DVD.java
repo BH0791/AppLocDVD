@@ -9,13 +9,17 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class DVD {
-    private long id;
-    private String titre;
-    private int annee;
-    private String acteurs[];
-    private String resume;
+    long id;
+    String titre;
+    int annee;
+    String acteurs[];
+    String resume;
     private String cheminPhoto;
-    private long dateVisionnage;
+    long dateVisionnage;
+
+    public DVD() {
+
+    }
 
     private DVD(@NotNull Cursor cursor) {
         id = cursor.getLong(cursor.getColumnIndex("id"));

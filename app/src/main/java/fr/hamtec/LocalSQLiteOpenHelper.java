@@ -8,13 +8,8 @@ public class LocalSQLiteOpenHelper extends SQLiteOpenHelper {
     static String DB_NAME = "locDVD.db";
     static int DB_VERSION = 1;
 
-    public LocalSQLiteOpenHelper(
-            Context context,
-            String name,
-            SQLiteDatabase.CursorFactory factory,
-            int version) {
-
-        super(context, DB_NAME, factory, DB_VERSION);
+    public LocalSQLiteOpenHelper(Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
